@@ -1,6 +1,7 @@
 <?php
 
 $leftMenu = Menu::instance('admin-menu');
+$leftMenu->url('kitchensink', 'Kitchen Sink');
 
 $rightMenu = Menu::instance('admin-menu-right');
 

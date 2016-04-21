@@ -21,7 +21,7 @@ class RoleAndUserSeeder extends Seeder
 
         $user = Pingpong\Admin\Entities\User::create([
             'name' => 'Site Admin',
-            'email' => 'admin@example.com',
+            'email' => 'test@test.com',
             'password' => 'admin',
             'created_at' => new \Carbon\Carbon(),
             'updated_at' => new \Carbon\Carbon(),

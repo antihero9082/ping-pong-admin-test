@@ -20,3 +20,4 @@
 <!-- AdminLTE App -->
 <script src="{!! admin_asset('adminlte/js/AdminLTE/app.js') !!}" type="text/javascript"></script>
 <script src="{!! admin_asset('js/all.js') !!}" type="text/javascript"></script>
+<script src="{!! admin_asset('adminlte/js/plugins/datatables/jquery.dataTables.js') !!}"></script>

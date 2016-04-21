@@ -521,17 +521,25 @@
 						</div>
 					</div>
 					<!-- /.box -->
-
 				</section>
 				<!-- right col -->
+
 			</div>
 			<!-- /.row (main row) -->
+<div class="box box-info">
+    <div class="box-header ui-sortable-handle"></div>
+    <div class="box-body">
+        <table id="example" class="display" cellspacing="0" width="100%">
 
+        </table>
+    </div>
+</div>
 			@stop
 
 @section('script')
 	<script src="{!! admin_asset('components/raphael/raphael-min.js') !!}"></script>
 	<script src="{!! admin_asset('adminlte/js/plugins/morris/morris.min.js') !!}"></script>
+    <script src="{!! admin_asset('adminlte/js/plugins/datatables/jquery.dataTables.js') !!}"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="{!! admin_asset('adminlte/js/AdminLTE/dashboard.js') !!}" type="text/javascript"></script>
 

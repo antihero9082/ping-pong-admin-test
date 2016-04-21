@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('api/todo', ['uses' => 'TodoController@index']);
+Route::post('api/todo', ['uses' => 'TodoController@store']);
+Route::get('kitchensink', ['uses' => 'KitchenSink@index']);

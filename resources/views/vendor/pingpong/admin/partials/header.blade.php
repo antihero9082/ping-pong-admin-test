@@ -2,7 +2,7 @@
 <header class="header">
     <a href="{!! url('/') !!}" target="_blank" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        {!! option('site.name') !!}
+        Simplexity Ventures
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">

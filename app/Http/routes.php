@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Route::get('api/todo', ['uses' => 'TodoController@index']);
 Route::post('api/todo', ['uses' => 'TodoController@store']);
-Route::get('kitchensink', ['uses' => 'KitchenSink@index']);
+/**
+ * How to use an authenticator to filter out non auth'd users
+ */
+Route::group(['middleware' => config('admin.filter.auth')], function () {
+    Route::get('kitchensink', ['uses' => 'KitchenSink@index']);
+});

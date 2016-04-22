@@ -17,9 +17,69 @@ class KitchenSink extends Controller
     public function index()
     {
         //
-        $players = array();
+        $players = [];
+        $returnData = [];
+        if (isset($_GET['custom_keys']) && $_GET['custom_keys'] == true) {
+            $customKeys = [
+                'id' => [
+                    'display' =>'Id',
+                    'position' => 'center',
+                    'editable' => 0,
+                    'width' => '5%'
+                ],
+                'first_name' =>[
+                    'display' => 'First Name',
+                    'position' => 'left',
+                    'editable' => 1,
+                    'width' => '15%'
+                ],
+                'last_name' => [
+                    'display' => 'Last Name',
+                    'position' => 'left',
+                    'editable' => 1,
+                    'width' => '15%'
+                ],
+                'age' => [
+                    'display' => 'Age',
+                    'position' => 'center',
+                    'editable' => 1,
+                    'width' => '5%'
+                ],
+                'position_id' => [
+                    'display' => 'Position Id',
+                    'position' => 'center',
+                    'editable' => 1,
+                    'width' => '10%'
+                ],
+                'is_starter' => [
+                    'display' => 'Starter',
+                    'position' => 'center',
+                    'editable' => 1,
+                    'width' => '8%'
+                ],
+                'comment_count' => [
+                    'display' => 'Comment Count',
+                    'position' => 'center',
+                    'editable' => 0,
+                    'width' => '10%'
+                ],
+                'news_item_count' => [
+                    'display' => 'News Item Count',
+                    'position' => 'center',
+                    'editable' => 0,
+                    'width' => '10%'
+                ],
+                'actions' => [
+                    'display' => 'Actions',
+                    'position' => '',
+                    'editable' => 0,
+                    'width' => '22%'
+                ]
+            ];
+            $returnData['customKeys'] = $customKeys;
+        }
         for ($i = 0; $i < 50; $i++) {
-            $players[] = array(
+            $players[$i] = [
                 'id' => $i + 1,
                 'first_name' => $this->createName('first'),
                 'last_name' => $this->createName('last'),
@@ -27,10 +87,13 @@ class KitchenSink extends Controller
                 'position_id' => mt_rand(1, 9),
                 'is_starter' => mt_rand(0, 1),
                 'comment_count' => mt_rand(0, 1000),
-                'news_item_count' => mt_rand(1, 50)
-            );
+                'news_item_count' => mt_rand(1, 50),
+
+            ];
+            $players[$i]['last_comment'] = $players[$i]['first_name'] . ' is really one of the best players ive ever seen, he has great hands and can throw for miles';
         }
-        return view('kitchensink.tablepage')->with('players', $this->actionButtons($players));
+        $returnData['players'] = $players;
+        return view('kitchensink.tablepage')->with($returnData);
     }
 
     /**

@@ -218,7 +218,7 @@ $(function() {
     $("#loading-example").boxRefresh({
         source: "ajax/dashboard-boxrefresh-demo.php",
         onLoadDone: function(box) {
-            bar = new Morris.Bar({
+            var bar = new Morris.Bar({
                 element: 'bar-chart',
                 resize: true,
                 data: [
@@ -248,5 +248,18 @@ $(function() {
             //console.log("The element has been unchecked")
         }
     });
-
+    /* Data Tables*/
+    var table = $('#example').DataTable({
+        "bProcessing" : true,
+        "bServerSide" : true,
+        "sAjaxSource" : "api/server_processing.php", //todo :change
+        "fnDrawCallback" : function() {
+            $('#example tbody td').editable('../examples_support/editable_ajax.php', {
+                "callback" : function(sValue, y) {
+                    table.fnDraw();
+                },
+                "height" : "14px"
+            })
+        }
+    })
 });
